@@ -7,3 +7,6 @@ Backend will be made with aws rds
 
 1) Create DB in AWS RDS
 - create data base
+
+
+>> https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80
