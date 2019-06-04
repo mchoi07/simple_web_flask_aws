@@ -1,9 +1,11 @@
 Install packages:
+--------------------------------------------------------------------
 python 3.5 or higher
 virtualenv
 flask
 
 To run app:
+--------------------------------------------------------------------
 export FLASK_APP=flaskr
 export FLASK_ENV=develompent //use production for production env.
 flask run
