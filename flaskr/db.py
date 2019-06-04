@@ -2,8 +2,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://scott:tiger@localhost/mydatabase'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://jeremie.havice:Jeremie.havice@techfield-0430.c48wltpqrvjo.us-east-2.rds.amazonaws.com:3306/techfield0430'
 db = SQLAlchemy(app)
 
 
@@ -13,6 +12,7 @@ class User(db.Model):
     lastname = db.Column(db.String(80), unique=False, nullable=False)
     weight = db.Column(db.Decimal, unique=False, nullable=False)
     height = db.Column(db.Decimal, unique=False, nullable=False)
+    age = db.Column(db.Integer, unique=False, nullable=False)
 
     def __repr__(self):
         return '<User %r>' % self.lastname
