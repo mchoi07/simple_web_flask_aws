@@ -12,7 +12,7 @@ Backend will be made with aws rds
 >> https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80
 
 virtualenv flask-aws
-soruce flask-aws/bin/activate
+source flask-aws/bin/activate
 export FLASK_APP=flaskr
 export FLASK_ENV=development
 flask run
