@@ -1,23 +1,20 @@
-import sqlite3
 
-import click
-from flask import current_app, g
-from flask.cli import with_appcontext
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-
-def get_db():
-    if 'db' not in g:
-        g.db = sqlite3.connect(
-            current_app.config['DATABASE'],
-            detect_types=sqlite3.PARSE_DECLTYPES
-        )
-        g.db.row_factory = sqlite3.Row
-
-    return g.db
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://scott:tiger@localhost/mydatabase'
+db = SQLAlchemy(app)
 
 
-def close_db(e=None):
-    db = g.pop('db', None)
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(80), unique=False, nullable=False)
+    lastname = db.Column(db.String(80), unique=False, nullable=False)
+    weight = db.Column(db.Decimal, unique=False, nullable=False)
+    height = db.Column(db.Decimal, unique=False, nullable=False)
 
-    if db is not None:
-        db.close()
+    def __repr__(self):
+        return '<User %r>' % self.lastname
+
+
