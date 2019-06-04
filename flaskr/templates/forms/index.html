@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}New Post{% endblock %}</h1>
+  <h1>{% block title %}Info Form{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
@@ -10,10 +10,12 @@
     <input name="firstname" id="firstname" value="{{ request.form['firstname'] }}" required>
     <label for="lastname">Lastname</label>
     <input name="lastname" id="lastname" value="{{ request.form['lastname'] }}" required>
-    <label for="weight">Body</label>
-    <input name="weight" id="weight">{{ request.form['weight'] }}>
-    <label for="height">Body</label>
-    <input name="height" id="height">{{ request.form['weight'] }}>
+    <label for="weight">Weight</label>
+    <input name="weight" id="weight" value="{{ request.form['weight'] }}">
+    <label for="height">Height</label>
+    <input name="height" id="height" value="{{ request.form['height'] }}">
+    <label for="age">Age</label>
+    <input name="age" id="age" value="{{ request.form['age'] }}">
     <input type="submit" value="Save">
   </form>
 {% endblock %}
