@@ -1,20 +1,22 @@
 import functools
 
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for
+    Blueprint, flash, g, redirect, render_template, request, url_for
 )
 
 from flaskr.db import get_db
 
 bp = Blueprint('forms', __name__)
 
-@bp.route('/')
+
+@bp.route('/', methods=('GET', 'POST'))
 def index():
     if request.method == 'POST':
-        firstname = request.form['firstName']
-        lastname = request.form['lastName']
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
         weight = request.form['weight']
         height = request.form['height']
+        age = request.form['age']
         error = None
 
         if not firstname:
@@ -23,15 +25,22 @@ def index():
             error = 'Last name is required'
         if error is not None:
             flash(error)
-        """
         else:
+            """
             db = get_db()
             db.execute(
-                'INSERT INTO info (firstname, lastname, weight, height,)'
+                'INSERT INTO info (firstname, lastname, weight, height, age)'
                 ' VALUES (?, ?, ?, ?)',
-                (firstname, lastname, weight, height)
+                (firstname, lastname, weight, height, age)
             )
             db.commit()
-            return redirect(url_for('blog.index'))
-        """
+            """
+            return redirect(url_for("forms.success"))
     return render_template('forms/index.html')
+
+
+@bp.route("/success", methods=('GET', 'POST'))
+def success():
+    if request.method == 'POST':
+        error= None
+    return render_template('forms/success.html')
