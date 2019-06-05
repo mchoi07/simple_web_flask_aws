@@ -28,7 +28,8 @@ def create_app(test_config=None):
 
     from . import db
     db.init_app(app)
-
+    from . import database
+    database.init_app(app)
     from . import forms
     app.register_blueprint(forms.bp)
     app.add_url_rule('/', endpoint='index')
