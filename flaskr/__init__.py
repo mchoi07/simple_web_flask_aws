@@ -26,8 +26,8 @@ def create_app(test_config=None):
 
     # a simple page that says hello
 
-    from . import db
-    db.init_app(app)
+    #from . import db
+    #db.init_app(app)
     from . import database
     database.init_app(app)
     from . import forms
