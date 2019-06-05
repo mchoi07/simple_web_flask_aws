@@ -33,5 +33,5 @@ def create_app(test_config=None):
     from . import forms
     app.register_blueprint(forms.bp)
     app.add_url_rule('/', endpoint='index')
-
+    app.run(host='0.0.0.0')
     return app
