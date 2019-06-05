@@ -17,7 +17,7 @@ Database is AWS RDS
 
 4. `flask run`
 
-REFERANCES:
+REFERANCES: </br>
 https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80 </br>
 http://flask.pocoo.org/docs/1.0/patterns/sqlalchemy/
 
