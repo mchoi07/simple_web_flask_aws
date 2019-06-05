@@ -1,10 +1,11 @@
 import functools
-
+from flaskr.database import get_db
+from sqlalchemy import create_engine, MetaData, Table
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
 
-from flaskr.db import get_db
+#from flaskr.db import get_db
 
 bp = Blueprint('forms', __name__)
 
@@ -33,8 +34,11 @@ def index():
                 ' VALUES (?, ?, ?, ?)',
                 (firstname, lastname, weight, height, age)
             )
-            db.commit()
             """
+            engine = get_db()
+            con = engine.connect()
+            con.execute(g.db.table.insert(), firstname=firstname, lastname=lastname, weight=weight, height=height,
+                        age=age)
             return redirect(url_for("forms.success"))
     return render_template('forms/index.html')
 
@@ -44,3 +48,4 @@ def success():
     if request.method == 'POST':
         error= None
     return render_template('forms/success.html')
+
