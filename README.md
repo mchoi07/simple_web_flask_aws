@@ -18,7 +18,7 @@ Building a basic web (HTML) applicaiton using Flask.
 - `flask run`
 
 
-References:
+References: </br>
 https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80 </br>
 http://flask.pocoo.org/docs/1.0/tutorial/factory/ </br>
 http://flask.pocoo.org/docs/1.0/patterns/sqlalchemy/ </br>
