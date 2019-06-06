@@ -20,6 +20,6 @@ RUN export LC_ALL=en_US.utf-8
 RUN export LANG=en_US.utf-8
 COPY . /flaskr
 
-WORKDIR ../
+#WORKDIR /
 ENTRYPOINT ["flask"]
-CMD [ "run" ]
+CMD [ "run", "--host=0.0.0.0" ]
