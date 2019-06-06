@@ -16,8 +16,8 @@ RUN pip install -r requirements.txt
 
 ENV FLASK_APP=flaskr
 ENV FLASK_ENV=development
-RUN export LC_ALL=en_US.utf-8
-RUN export LANG=en_US.utf-8
+ENV LC_ALL=en_US.utf-8
+ENV LANG=en_US.utf-8
 COPY . /flaskr
 
 #WORKDIR /
